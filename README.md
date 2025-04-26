@@ -16,3 +16,18 @@ origin	git@github.com:WhyAitchYou/kickstart.nvim.git (push)
 upstream	https://github.com/nvim-lua/kickstart.nvim.git (fetch)
 upstream	https://github.com/nvim-lua/kickstart.nvim.git (push)
 ```
+
+## changes differ from upstream
+
+- version-control lazy-lock.json
+
+the upstream repo doesn't check in `lazy-lock.json` but it's good for pinning the version.
+because i symlink the `~/.config/nvim/init.lua` to the `init.lua` in this fork repo,
+i have to tell nvim where to generate the `lockfile`
+```lua
+require("lazy").setup({
+  -- Your plugins here
+}, {
+  lockfile = vim.fn.expand("~/workdir/kickstart.nvim/lazy-lock.json"),
+})
+```
