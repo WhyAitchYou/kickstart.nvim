@@ -15,6 +15,9 @@ origin	git@github.com:WhyAitchYou/kickstart.nvim.git (fetch)
 origin	git@github.com:WhyAitchYou/kickstart.nvim.git (push)
 upstream	https://github.com/nvim-lua/kickstart.nvim.git (fetch)
 upstream	https://github.com/nvim-lua/kickstart.nvim.git (push)
+
+$ git fetch upstream
+$ git merge upstream/master
 ```
 
 to make neovim load this repo, you need to create a symlink to the entire folder,
