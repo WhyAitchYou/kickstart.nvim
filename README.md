@@ -17,17 +17,17 @@ upstream	https://github.com/nvim-lua/kickstart.nvim.git (fetch)
 upstream	https://github.com/nvim-lua/kickstart.nvim.git (push)
 ```
 
+to make neovim load this repo, you need to create a symlink to the entire folder,
+not just the init.lua file. this is because neovim will use the location of init.lua
+to search for other companion files, such as lazy-lock.json, .stylua.toml.
+
+```bash
+$ git clone https://github.com/WhyAitchYou/kickstart.nvim.git ~/workdir/
+$ ln -s ~/workdir/kickstart.nvim/ ~/.config/nvim
+```
+
 ## changes differ from upstream
 
 - version-control lazy-lock.json
 
-the upstream repo doesn't check in `lazy-lock.json` but it's good for pinning the version.
-because i symlink the `~/.config/nvim/init.lua` to the `init.lua` in this fork repo,
-i have to tell nvim where to generate the `lockfile`
-```lua
-require("lazy").setup({
-  -- Your plugins here
-}, {
-  lockfile = vim.fn.expand("~/workdir/kickstart.nvim/lazy-lock.json"),
-})
-```
+the upstream repo doesn't check in `lazy-lock.json` but it's good for pinning the version. i remove `lazy-lock.json` from .gitignore.
