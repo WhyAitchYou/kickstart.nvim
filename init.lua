@@ -84,7 +84,7 @@ I hope you enjoy your Neovim journey,
 P.S. You can delete this when you're done too. It's your config now! :)
 --]]
 
-vim.cmd.colorscheme 'quiet'
+vim.cmd.colorscheme 'default'
 
 -- Set <space> as the leader key
 -- See `:help mapleader`
@@ -678,6 +678,7 @@ require('lazy').setup({
         -- ts_ls = {},
         --
 
+        pyright = {},
         lua_ls = {
           -- cmd = { ... },
           -- filetypes = { ... },
@@ -710,6 +711,8 @@ require('lazy').setup({
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
+        'pyright',
+        'gopls',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
