@@ -84,7 +84,7 @@ I hope you enjoy your Neovim journey,
 P.S. You can delete this when you're done too. It's your config now! :)
 --]]
 
-vim.cmd.colorscheme 'default'
+vim.cmd.colorscheme 'monochrome'
 
 -- Set <space> as the leader key
 -- See `:help mapleader`
@@ -242,6 +242,7 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
+  'kdheepak/monochrome.nvim',
 
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
@@ -276,6 +277,10 @@ require('lazy').setup({
         changedelete = { text = '~' },
       },
     },
+  },
+  { -- GitHub Copilot
+    'github/copilot.vim',
+    event = 'VimEnter',
   },
 
   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
